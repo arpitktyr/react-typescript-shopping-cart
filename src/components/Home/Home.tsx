@@ -1,11 +1,9 @@
 import React from "react";
 import "./Home.css";
 import Categorieslist from "../Categories/Categorieslist";
-// import Carousel from "../Carousel/Carousel";
+import Carousel from "../Carousel/Carousel";
 
-
-const Home : React.FC = () => {
- 
+const Home: React.FC = () => {
   return (
     <div className="home-container">
       <div className="card bg-dark text-white border-0">
@@ -16,7 +14,7 @@ const Home : React.FC = () => {
         />
       </div>
       <Categorieslist />
-      {/* <Carousel /> */}
+      <Carousel />
     </div>
   );
 };

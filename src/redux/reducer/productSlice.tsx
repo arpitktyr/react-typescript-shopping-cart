@@ -3,7 +3,19 @@ import { getWrapper } from "../../Utils";
 import { Constants } from "../../Constants/Index";
 const { apiUrl } = Constants;
 
-export interface ProductType {}
+export interface ProductType {
+  catId: string;
+  price: number;
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  image: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
+}
 
 interface ProductState {
   product: ProductType[];

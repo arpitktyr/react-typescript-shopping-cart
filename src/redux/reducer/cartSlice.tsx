@@ -1,31 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../store";
-interface CartItem {
+
+export interface CartItem {
   id: string;
   qty: number;
+  image: string;
+  title: string;
+  price: number;
 }
 
-interface CartState extends Array<CartItem> {}
+//interface CartState extends Array<CartItem> {}
+//equal to CartItem[]
 
-const initialState: CartState = [];
+const initialState: CartItem[] = [];
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addItem: (state, action) => {
-      const product = action.payload;
-      const exist = state.find((x) => x.id === product.id);
-      if (exist) {
-        return state.map((item) =>
-          item.id === product.id
-            ? {
-                ...item,
-                qty: item.qty > 1 ? item.qty + product.qty : item.qty + 1,
-              }
-            : item
-        );
+    addProduct: (state, action) => {
+      const { id } = action.payload;
+      const existingItem = state.find((item) => item.id === id);
+      if (existingItem) {
+        existingItem.qty += 1;
+      } else {
+        state.push(action.payload);
       }
-      return (state = product);
     },
 
     deleteItem: (state, action) => {
@@ -52,7 +50,7 @@ export const cartSlice = createSlice({
   },
 });
 
-export const selectCart = (state: RootState) => state.cartSlice;
-export const { addItem, deleteItem, increaseQty, decreaseQty } =
+//export const selectCart = (state: RootState) => state.cartSlice;
+export const { deleteItem, increaseQty, decreaseQty, addProduct } =
   cartSlice.actions;
 export default cartSlice.reducer;

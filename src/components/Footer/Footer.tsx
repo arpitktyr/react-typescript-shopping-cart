@@ -1,6 +1,6 @@
 import React from "react";
 const Footer: React.FC = () => {
-  let footerStyle:any= {
+  let footerStyle: React.CSSProperties = {
     color: "#fff",
     textAlign: "center",
     backgroundColor: "rgb(0 0 0 / 73%)",

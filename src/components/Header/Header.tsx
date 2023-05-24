@@ -5,6 +5,7 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { getCategories } from "./../../redux/reducer/categorySlice";
 import { RootState } from "../../redux/store";
 import { CategoryType } from "./../../redux/reducer/categorySlice";
+
 const Header = () => {
   const dispatch = useDispatch<any>();
 
@@ -20,8 +21,7 @@ const Header = () => {
     dispatch(getCategories());
   }
 
-  const cartItemCount = 4;
-  // const cartItemCount = 2;  useSelector((state:any) => state.handleCart.length);
+  const cartItemCount = useSelector((state: any) => state.cartSlice.length);
 
   return (
     <div>
