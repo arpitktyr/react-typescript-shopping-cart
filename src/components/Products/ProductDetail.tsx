@@ -19,8 +19,6 @@ const ProductDetail: React.FC = () => {
 
   const products = product.find((item) => item.id == pid);
 
-  console.log(products);
-  console.log(product);
   const productRender = (
     <div className="container">
       <div>
