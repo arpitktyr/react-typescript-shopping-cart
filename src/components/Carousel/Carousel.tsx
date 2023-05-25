@@ -5,13 +5,13 @@ import "slick-carousel/slick/slick-theme.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { getProducts } from "../../redux/reducer/productSlice";
-import { RootState } from "../../redux/store";
+import { RootState, AppDispatch } from "../../redux/store";
 
 const Carousel = () => {
   const { product, loading, error } = useSelector(
     (state: RootState) => state.productSlice
   );
-  const dispatch: any = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   if (product.length === 0 && loading !== true && error === "") {
     dispatch(getProducts());
   }

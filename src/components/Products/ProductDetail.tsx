@@ -4,10 +4,10 @@ import ProductDetailCard from "./ProductDetailCard";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../../redux/reducer/productSlice";
-import { RootState } from "../../redux/store";
+import { RootState, AppDispatch } from "../../redux/store";
 
 const ProductDetail: React.FC = () => {
-  const dispatch: any = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const { pid } = useParams();
   const { product, loading, error } = useSelector(
     (state: RootState) => state.productSlice

@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
-import { RootState } from "../../redux/store";
+import { RootState, AppDispatch } from "../../redux/store";
 import { CategoryType } from "../../redux/reducer/categorySlice";
 import { ProductType } from "./../../redux/reducer/productSlice";
-
 import "./Product.css";
 import ProductCard from "./ProductCard";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
@@ -11,7 +10,7 @@ import { getProducts } from "./../../redux/reducer/productSlice";
 
 import { useSelector, useDispatch } from "react-redux";
 const ProductList: React.FC = () => {
-  const dispatch: any = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const [sortOption, setSortOption] = useState("price_low_to_high");
   const { product, loading, error } = useSelector(
     (state: RootState) => state.productSlice
@@ -43,7 +42,7 @@ const ProductList: React.FC = () => {
   const [totalPages, setTotalPages] = useState(1);
 
   const filterCategory = useCallback(
-    (name: any, product: ProductType[]) => {
+    (name: string | undefined, product: ProductType[]) => {
       const sort = (products: ProductType[]) => {
         return [...products].sort((a, b) => {
           if (sortOption === "price_low_to_high") {

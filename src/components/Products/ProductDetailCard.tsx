@@ -3,7 +3,7 @@ import { RootState } from "../../redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteItem, addProduct } from "../../redux/reducer/cartSlice";
 import { Link } from "react-router-dom";
-
+import { ProductType } from "../../redux/reducer/productSlice";
 const ProductDetailCard: React.FC<any> = (props) => {
   const [cartBtn, setCartBtn] = useState("Add to Cart");
   const [quantity, setQuantity] = useState(1);
@@ -33,10 +33,10 @@ const ProductDetailCard: React.FC<any> = (props) => {
     }
   };
 
-  const handle = (props: any) => {
+  const handle = ({ data }: { data: ProductType }) => {
     if (cartBtn === "Add to Cart") {
       const productData = {
-        ...props.data,
+        ...data,
         qty: quantity,
       };
       dispatch(addProduct(productData));

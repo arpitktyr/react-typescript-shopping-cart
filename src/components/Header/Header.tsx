@@ -21,7 +21,9 @@ const Header = () => {
     dispatch(getCategories());
   }
 
-  const cartItemCount = useSelector((state: any) => state.cartSlice.length);
+  const cartItemCount = useSelector(
+    (state: RootState) => state.cartSlice.length
+  );
 
   return (
     <div>
