@@ -11,7 +11,7 @@ const ProductDetailCard: React.FC<any> = (props) => {
   const [error, SetError] = useState("");
 
   const state = useSelector((state: RootState) => state.cartSlice);
-  console.log(state);
+
   useEffect(() => {
     state.forEach((element) => {
       if (element.id === props.data.id) {
