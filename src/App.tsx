@@ -19,12 +19,6 @@ function App() {
           <Route path="/Cart" element={<Cart />} />
           <Route path="/products/:catId" element={<ProductList />} />
           <Route path="/product/:pid" element={<ProductDetail />} />
-
-          {/* <Route path="/About" element={<About />} />
-          <Route path="/Contact" element={<Contact />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/Register" element={<Register />} />
-         */}
           <Route path="/*" element={<Errorpage />} />
         </Routes>
         <Footer />
